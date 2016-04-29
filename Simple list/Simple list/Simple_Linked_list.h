@@ -26,49 +26,59 @@ public:
 
 	node* root;
 	node* iterator;
+	node* last;
+	node* cpy;
 
 public:
 	//ERASE
 
 	//INSERT
 	void insert(const T& data, int n){
-		node* newmode = new node(data);
+		node* new_node = new node(data);
 		iterator = root;
 		while (n > 0 && iterator->next != nullptr) {
 			iterator = iterator->next;
 			n--;
 		}
-		newnode->next = iterator->next;
-		iterator = newnode;
+		new_node->next = iterator->next;
+		iterator = new_node;
 	}
 
 
 	void clear(){
 
+		
 
 	}
 
 
-	node first() {
-		return root*;
+	node* first() {
+		return root;
+	}
+
+	node* last(){
+		if (iterator->next == nullptr)
+			iterator = iterator->next;
+		return iterator;
 	}
 
 
-	node* end(){
+	void pushfront(){
 
-
-	}
-
-
-	void pushfornt(){
-
-
+		node* new_node = new node(value);
+		new_node->next = root;
+		root = new_node;
 	}
 
 
 	void pushback(){
 
-
+		node* new_node = new node(value);
+		last = last();
+		if (last == NULL)
+			root = new_node;
+		else
+			last->next = new_node;
 	}
 
 
